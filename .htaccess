@@ -1,2 +1,7 @@
-# This is to load images from remote site
+# This is to load images from remote site, if not available in local
 
+# Place this inside your files folder
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ http://[REPLACE-REMOTE-SITE-URL]/$1 [L,R=301]
